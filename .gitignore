@@ -1,0 +1,21 @@
+# Database
+db.sqlite3
+*.sqlite3
+
+# Django
+*.pyc
+__pycache__/
+migrations/
+
+# Virtual Environment
+djvenv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
