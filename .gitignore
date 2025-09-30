@@ -1,21 +1,16 @@
-# Database
-db.sqlite3
-*.sqlite3
-
+# .gitignore
 # Django
 *.pyc
 __pycache__/
-migrations/
+*.sqlite3
+.env
+*.log
 
 # Virtual Environment
 djvenv/
-venv/
-env/
 
 # IDE
 .vscode/
 .idea/
-
-# OS
-.DS_Store
-Thumbs.db
+*.swp
+*.swo
