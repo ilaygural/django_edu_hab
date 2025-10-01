@@ -21,5 +21,5 @@ from women import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("women.urls")), # http://127.0.0.1:8000/women/
-
+    path("schedule/", include("schedule.urls")),
 ]
