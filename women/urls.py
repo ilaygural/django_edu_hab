@@ -2,7 +2,8 @@ from django.urls import path, re_path, register_converter
 from . import views
 from . import converters
 
-register_converter(converters.FourDigitYearConverter, "year4")
+# noinspection PyTypeChecker
+register_converter(converters.FourDigitYearConverter, 'year4')
 
 urlpatterns = [
     path('', views.index),  # http://127.0.0.1:8000/women/
