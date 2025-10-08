@@ -6,6 +6,7 @@ from . import converters
 register_converter(converters.FourDigitYearConverter, 'year4')
 
 urlpatterns = [
+    path('about/', views.about, name='about'),
     path('post/', views.post_detail),
     path('', views.index, name='home'),  # http://127.0.0.1:8000/women/ добавлено имя
     path('cats/<int:cat_id>/', views.categories, name='cats_id'),
