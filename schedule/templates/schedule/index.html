@@ -1,19 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>{{title}}</title>
+    <title>{{ title }}</title>
 </head>
 <body>
-<h1>{{title}}</h1>
-<p>{{description}}</p>
-<ul>
-    {% for feature in features %}
-        <li>{{ feature }}</li>
-    {% endfor %}
-</ul>
-<p>Статистика: {{stats.total_courses}} курсов</p>
-<a href="/admin/">Перейти в админку</a>
+    <h1>{{ title }}</h1>
 
+    <h2>Активные курсы:</h2>
+    <ul>
+        {% for course in courses %}
+            {% if course.is_active %}
+                <li>
+                    <h3>{{ course.title }}</h3>
+                    <p><strong>Преподаватель:</strong> {{ course.teacher }}</p>
+                    <p><strong>Расписание:</strong> {{ course.schedule }}</p>
+
+                    {% if not forloop.last %}
+                        <hr>  <!-- разделитель между курсами -->
+                    {% endif %}
+                </li>
+            {% endif %}
+        {% empty %}
+            <p>Нет активных курсов</p>
+        {% endfor %}
+    </ul>
+
+    <h2>Все курсы (включая неактивные):</h2>
+    <ul>
+        {% for course in courses %}
+            <li style="{% if not course.is_active %}color:gray;{% endif %}">
+                {{ course.title }} - {{ course.teacher }}
+                {% if not course.is_active %} (неактивен){% endif %}
+            </li>
+        {% endfor %}
+    </ul>
 </body>
 </html>

@@ -5,14 +5,27 @@ from django.shortcuts import render, redirect
 # Create your views here.
 def index(request):
     data = {
-        'title': '📅 Edu_Hub - Расписание',
-        'description': 'Система управления учебным процессом',
-        'features': ['Курсы', 'Уроки', 'Преподаватели', 'Студенты'],
-        'stats': {
-            'total_courses': 15,
-            'active_teachers': 8,
-            'students_count': 120
-        }
+        'title': 'Расписание занятий',
+        'courses': [
+            {
+                'title': 'Математика',
+                'teacher': 'Иванов И.И.',
+                'is_active': True,
+                'schedule': 'Пн, Ср 10:00-11:30'
+            },
+            {
+                'title': 'Программирование',
+                'teacher': 'Петрова А.С.',
+                'is_active': True,
+                'schedule': 'Вт, Чт 14:00-15:30'
+            },
+            {
+                'title': 'Физика',
+                'teacher': 'Сидоров В.П.',
+                'is_active': False,  # неактивный курс
+                'schedule': 'Пт 09:00-10:30'
+            }
+        ]
     }
     return render(request, 'schedule/index.html', data)
 
