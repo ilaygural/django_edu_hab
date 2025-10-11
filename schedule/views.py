@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 
 
 # Create your views here.
-def index(request):
+def schedule(request):
     data = {
         'title': 'Расписание занятий',
         'courses': [

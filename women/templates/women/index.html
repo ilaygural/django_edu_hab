@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<head>
-    <meta charset="UTF-8">
-    <title>{{ title|capfirst|default:"Без заголовка" }}</title>
-
-</head>
-<body>
-<p>{{ menu|join:" | " }}</p>
+{% extends 'base.html' %}
+{% block content %}
+<!--{% include 'women/includes/nav.html' %}-->
+{% include 'women/includes/nav.html' only %}
 <h1>{{ title }}</h1>
 <ul>
     {% for p in posts %}
@@ -13,6 +9,7 @@
     <li>
         <h2>{{ p.title }}</h2>
         <p>{{ p.content }}</p>
+        <p><a href="{% url 'post' p.id %}">Читать пост</a></p>
         {% if not forloop.last %}
         <hr>
         {% endif %}
@@ -21,5 +18,5 @@
     {% endfor %}
 
 </ul>
-</body>
-</html>
+{% include 'women/includes/nav.html' %}
+{% endblock %}
