@@ -1,39 +1,24 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>{{ title }}</title>
-</head>
-<body>
-    <h1>{{ title }}</h1>
+{% extends 'schedule/base_schedule.html' %}
 
-    <h2>Активные курсы:</h2>
-    <ul>
-        {% for course in courses %}
-            {% if course.is_active %}
-                <li>
-                    <h3>{{ course.title }}</h3>
-                    <p><strong>Преподаватель:</strong> {{ course.teacher }}</p>
-                    <p><strong>Расписание:</strong> {{ course.schedule }}</p>
+{% block content %}
+<div class="row">
+    <div class="col">
+        <h1 class="display-4">📅 {{ title }}</h1>
+        <p class="lead">Система управления учебным процессом</p>
 
-                    {% if not forloop.last %}
-                        <hr>  <!-- разделитель между курсами -->
-                    {% endif %}
-                </li>
-            {% endif %}
-        {% empty %}
-            <p>Нет активных курсов</p>
-        {% endfor %}
-    </ul>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Возможности системы:</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Курсы</li>
+                    <li class="list-group-item">Уроки</li>
+                    <li class="list-group-item">Преподаватели</li>
+                    <li class="list-group-item">Студенты</li>
+                </ul>
+            </div>
+        </div>
 
-    <h2>Все курсы (включая неактивные):</h2>
-    <ul>
-        {% for course in courses %}
-            <li style="{% if not course.is_active %}color:gray;{% endif %}">
-                {{ course.title }} - {{ course.teacher }}
-                {% if not course.is_active %} (неактивен){% endif %}
-            </li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+        <a href="/admin/" class="btn btn-primary mt-3">Перейти в админку</a>
+    </div>
+</div>
+{% endblock %}
