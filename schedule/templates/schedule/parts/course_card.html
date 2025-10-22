@@ -1,0 +1,12 @@
+<div class="card mb-3">
+    <div class="card-body">
+        <h5 class="card-title">{{ teacher.name }}</h5>
+        <p class="card-text">
+            <strong>Предмет:</strong> {{ teacher.subject }}<br>
+            <strong>Стаж:</strong> {{ teacher.experience }} лет
+        </p>
+        <span class="badge bg-{% if teacher.is_active %}success{% else %}secondary{% endif %}">
+            {% if teacher.is_active %}Активен{% else %}Неактивен{% endif %}
+        </span>
+    </div>
+</div>
