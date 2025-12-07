@@ -6,11 +6,6 @@ def page_not_found(request, exception):
     return HttpResponseNotFound("""
         <h1>📚 Страница не найдена - Edu_Hub</h1>
         <p>Извините, запрашиваемая страница не существует.</p>
-        <ul>
-            <li><a href="/schedule/">Перейти к расписанию</a></li>
-            <li><a href="/admin/">Войти в админку</a></li>
-            <li><a href="/">На главную</a></li>
-        </ul>
     """)
 
 def server_error(request):

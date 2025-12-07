@@ -1,5 +1,5 @@
 """
-URL configuration for edu_hub project.
+URL configuration for sitewomen project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.2/topics/http/urls/
@@ -14,18 +14,22 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from debug_toolbar.toolbar import debug_toolbar_urls
 from django.contrib import admin
 from django.urls import path, include
 
-from edu_hub.views import page_not_found, server_error
-from women import views
+from .views import page_not_found, server_error
+
+# from django.views.defaults import server_error, page_not_found
+
+
+
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", include("women.urls")), # http://127.0.0.1:8000/women/
-    path("schedule/", include("schedule.urls")),
-]
+    path("", include("women.urls")), # http://127.0.0.1:8000/women/,
+]  + debug_toolbar_urls()
 
 handler404 = page_not_found  # добавление функции своего ответа
 handler500 = server_error
