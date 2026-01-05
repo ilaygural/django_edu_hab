@@ -25,7 +25,7 @@ def index(request):
 
 
 def addpage(request):
-    return HttpResponse('Добавление статьи')
+    return render(request, 'women/addpage.html', {'menu': menu, 'title': "Добавление статьи"})
 
 
 def contact(request):
